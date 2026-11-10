@@ -7,8 +7,8 @@ Global Solution 2026.2, Ciência da Computação.
 
 | | |
 |---|---|
-| Site (dashboard) | `PREENCHER: link do GitHub Pages` |
-| Vídeo técnico (YouTube, não listado) | `PREENCHER: link do vídeo` |
+| Site (dashboard) | `https://raw-exe.github.io/site-citzentech-sustentave/` |
+| Vídeo técnico | `PREENCHER: link do vídeo` |
 
 ## Integrantes
 
