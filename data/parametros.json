@@ -1,0 +1,287 @@
+{
+  "_aviso": "Todos os valores são premissas do projeto. Os marcados como 'estimativa' não têm fonte direta e devem ser validados com cotações reais antes de qualquer decisão de investimento.",
+  "geral": {
+    "tarifa_rs_kwh": {
+      "rotulo": "Tarifa de energia (B4a)",
+      "valor": 0.8,
+      "unidade": "R$/kWh",
+      "tipo": "estimativa",
+      "nota": "Valor provisório para a tarifa B4a (iluminação pública, ativos do município). Confirmar na tabela da concessionária."
+    },
+    "fator_emissao_kg_kwh": {
+      "rotulo": "Fator de emissão da rede",
+      "valor": 0.0385,
+      "unidade": "kg CO2e/kWh",
+      "tipo": "dado",
+      "nota": "Fator médio do SIN em 2023 (0,0385 tCO2e/MWh), citado em inventário do TRT-15 com base no MCTI. Em 2021 foi 0,1264."
+    },
+    "horas_noite": {
+      "rotulo": "Horas de funcionamento por noite",
+      "valor": 12,
+      "unidade": "h/dia",
+      "tipo": "dado",
+      "nota": "Tempo diário de faturamento de iluminação pública estimado em 12 h (360 h/mês) pela ANEEL desde 1987; hoje definido por município."
+    },
+    "dias_ano": {
+      "rotulo": "Dias de funcionamento por ano",
+      "valor": 365,
+      "unidade": "dias",
+      "tipo": "dado",
+      "nota": ""
+    },
+    "horizonte_anos": {
+      "rotulo": "Horizonte de análise",
+      "valor": 15,
+      "unidade": "anos",
+      "tipo": "estimativa",
+      "nota": "Horizonte de análise do custo acumulado."
+    }
+  },
+  "equipamentos": {
+    "caminho": {
+      "nome": "Postes de caminhos e bancos",
+      "qtd": 14,
+      "sodio_w": 83,
+      "sodio_nota": "Sódio de 70 W + perda de reator típica de 13 W (NBR 13593; conferir tabela)",
+      "led_w": 45,
+      "led_nota": "LED de potência ≈ 65% da lâmpada de sódio equivalente"
+    },
+    "quadra": {
+      "nome": "Postes de quadra e playground",
+      "qtd": 6,
+      "sodio_w": 170,
+      "sodio_nota": "Sódio de 150 W + perda de reator típica de 20 W (NBR 13593; conferir tabela)",
+      "led_w": 100,
+      "led_nota": "LED de potência ≈ 65% da lâmpada de sódio equivalente"
+    }
+  },
+  "dimerizacao": {
+    "perfil": [
+      {
+        "de": 18,
+        "ate": 22,
+        "nivel": 1.0
+      },
+      {
+        "de": 22,
+        "ate": 24,
+        "nivel": 0.6
+      },
+      {
+        "de": 0,
+        "ate": 5,
+        "nivel": 0.3
+      },
+      {
+        "de": 5,
+        "ate": 6,
+        "nivel": 0.6
+      }
+    ],
+    "reforco_presenca": {
+      "rotulo": "Reforço por presença",
+      "valor": 0.15,
+      "tipo": "estimativa",
+      "nota": "Fração do tempo dimerizado em que o sensor de presença leva o poste a 100%."
+    },
+    "standby_w": {
+      "rotulo": "Consumo em espera por poste",
+      "valor": 2,
+      "tipo": "estimativa",
+      "nota": "Consumo contínuo de sensor e controlador por poste."
+    }
+  },
+  "custos": {
+    "luminaria_ornamental_led": {
+      "rotulo": "Luminária ornamental LED (60 W)",
+      "valor": 1616.99,
+      "unidade": "R$",
+      "tipo": "dado",
+      "nota": "Luminária ornamental LED 60 W, planilha de CAPEX de PPP (Farroupilha/Erechim, RS)."
+    },
+    "projetor_led": {
+      "rotulo": "Projetor LED (100 W)",
+      "valor": 900,
+      "unidade": "R$",
+      "tipo": "estimativa",
+      "nota": "Projetor LED de 100 W. A mesma planilha traz um projetor de 60 W a R$ 534,56; valor ajustado para potência maior."
+    },
+    "controlador_luminaria": {
+      "rotulo": "Controlador individual de luminária",
+      "valor": 322.4,
+      "unidade": "R$",
+      "tipo": "dado",
+      "nota": "Controlador individual de luminária (telegestão), mesma planilha de PPP."
+    },
+    "sensor_presenca": {
+      "rotulo": "Sensor de presença",
+      "valor": 150,
+      "unidade": "R$",
+      "tipo": "estimativa",
+      "nota": ""
+    },
+    "gateway": {
+      "rotulo": "Gateway de comunicação",
+      "valor": 1500,
+      "unidade": "R$",
+      "tipo": "estimativa",
+      "nota": ""
+    },
+    "instalacao_por_poste": {
+      "rotulo": "Instalação por poste",
+      "valor": 225,
+      "unidade": "R$",
+      "tipo": "estimativa",
+      "nota": "Mão de obra e acessórios."
+    },
+    "controlador_carga_solar": {
+      "rotulo": "Controlador de carga solar (por poste)",
+      "valor": 350,
+      "unidade": "R$",
+      "tipo": "estimativa",
+      "nota": "Um por poste na alternativa autônoma."
+    },
+    "painel_autonomo_rs_wp": {
+      "rotulo": "Painel solar dos postes autônomos",
+      "valor": 3.0,
+      "unidade": "R$/Wp",
+      "tipo": "estimativa",
+      "nota": ""
+    },
+    "bateria_rs_kwh": {
+      "rotulo": "Bateria de fosfato de ferro-lítio",
+      "valor": 1800,
+      "unidade": "R$/kWh",
+      "tipo": "estimativa",
+      "nota": "Bateria de fosfato de ferro-lítio."
+    },
+    "troca_bateria_fator": {
+      "rotulo": "Custo de troca da bateria",
+      "valor": 0.6,
+      "unidade": "fração do custo original",
+      "tipo": "estimativa",
+      "nota": "Custo de reposição, supondo queda de preço no futuro."
+    },
+    "fv_rede_rs_wp": {
+      "rotulo": "Sistema FV conectado à rede",
+      "valor": 4.5,
+      "unidade": "R$/Wp",
+      "tipo": "estimativa",
+      "nota": "Sistema fotovoltaico conectado à rede, instalado."
+    },
+    "om_base_ano": {
+      "rotulo": "Manutenção do sistema de sódio",
+      "valor": 900,
+      "unidade": "R$/ano",
+      "tipo": "estimativa",
+      "nota": "Manutenção do sistema de sódio (R$ 45 por poste)."
+    },
+    "om_led_ano": {
+      "rotulo": "Manutenção do LED com sensores",
+      "valor": 200,
+      "unidade": "R$/ano",
+      "tipo": "estimativa",
+      "nota": "R$ 10 por poste."
+    },
+    "om_autonomo_ano": {
+      "rotulo": "Manutenção do solar autônomo",
+      "valor": 800,
+      "unidade": "R$/ano",
+      "tipo": "estimativa",
+      "nota": "R$ 40 por poste."
+    },
+    "om_fv_rs_kwp_ano": {
+      "rotulo": "Manutenção do sistema FV",
+      "valor": 50,
+      "unidade": "R$/kWp/ano",
+      "tipo": "estimativa",
+      "nota": ""
+    }
+  },
+  "solar_autonomo": {
+    "horas_sol_pleno": {
+      "rotulo": "Horas de sol pleno (mês crítico)",
+      "valor": 3.5,
+      "unidade": "h/dia",
+      "tipo": "estimativa",
+      "nota": "Mês crítico, conservador. Validar no Atlas Solar (CRESESB)."
+    },
+    "eficiencia_sistema": {
+      "rotulo": "Eficiência do sistema solar",
+      "valor": 0.65,
+      "unidade": "",
+      "tipo": "estimativa",
+      "nota": "Perdas de painel, controlador, bateria e cabos."
+    },
+    "autonomia_dias": {
+      "rotulo": "Autonomia da bateria",
+      "valor": 2,
+      "unidade": "dias",
+      "tipo": "estimativa",
+      "nota": ""
+    },
+    "profundidade_descarga": {
+      "rotulo": "Profundidade de descarga",
+      "valor": 0.8,
+      "unidade": "",
+      "tipo": "estimativa",
+      "nota": "Bateria de fosfato de ferro-lítio."
+    },
+    "passo_painel_wp": {
+      "rotulo": "Passo de dimensionamento do painel",
+      "valor": 100,
+      "unidade": "Wp",
+      "tipo": "estimativa",
+      "nota": "Painéis dimensionados em múltiplos deste valor."
+    },
+    "ciclos_bateria": {
+      "rotulo": "Vida da bateria em ciclos",
+      "valor": 2000,
+      "unidade": "ciclos",
+      "tipo": "dado",
+      "nota": "Valor de ficha técnica de luminária solar all-in-one da Signify (bateria de 24 Ah)."
+    }
+  },
+  "fv_rede": {
+    "kwp": {
+      "rotulo": "Potência do sistema FV na rede",
+      "valor": 3,
+      "unidade": "kWp",
+      "tipo": "estimativa",
+      "nota": "Instalado em prédio público próximo, com compensação de créditos."
+    },
+    "rendimento_kwh_kwp_ano": {
+      "rotulo": "Rendimento anual do FV",
+      "valor": 1314,
+      "unidade": "kWh/kWp/ano",
+      "tipo": "estimativa",
+      "nota": "4,5 h de sol pleno × 365 × 0,80 de desempenho global."
+    },
+    "aproveitamento_compensacao": {
+      "rotulo": "Aproveitamento da compensação de créditos",
+      "valor": 0.85,
+      "unidade": "",
+      "tipo": "estimativa",
+      "nota": "Perdas por taxas e regras de compensação; verificar regra vigente."
+    },
+    "sazonalidade_mensal": {
+      "rotulo": "Sazonalidade mensal da geração",
+      "valor": [
+        1.08,
+        1.05,
+        1.02,
+        0.96,
+        0.88,
+        0.84,
+        0.9,
+        1.0,
+        0.98,
+        1.04,
+        1.06,
+        1.09
+      ],
+      "tipo": "simulado",
+      "nota": "Fatores relativos simulados para São Paulo (média normalizada em 1). Validar com dados do CRESESB."
+    }
+  }
+}
